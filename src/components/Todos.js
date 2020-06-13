@@ -14,10 +14,11 @@ import PropTypes from "prop-types";
 // should have a unique key, which is why we pass a key prop down to "TodoItem".
 
 class Todos extends React.Component {
+
   render() {
     return (
       this.props.todos.map(todo => (
-        <TodoItem key={todo.id} todo={todo} /> 
+        <TodoItem key={todo.id} todo={todo} markComplete={this.props.markComplete}/> 
         // passing the todo object into TodoItem as a prop, so now TodoItem
         // has access to the todo
       ))
