@@ -3,6 +3,7 @@
 
 import React from "react"; // importing the react library 
 import TodoItem from "./TodoItem";
+import PropTypes from "prop-types";
 
 // Since we have an array of todos we need to loop through them, then output something. 
 // In React we use the map method which is a high order array method that can take in an 
@@ -22,6 +23,14 @@ class Todos extends React.Component {
       ))
     )
   }
+}
+// "PropTypes" are a validation for properties that a component should have. We can
+// set the type and also set them to be required or not. Our Todos Component has a prop
+// of "todos" (the prop is passed into the component from the App.js). 
+
+Todos.propTypes = {
+  todos: PropTypes.array.isRequired
+  // This requires the component to have a prop named "todos" that is an array
 }
 
 export default Todos; 
