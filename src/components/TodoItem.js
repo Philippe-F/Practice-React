@@ -31,6 +31,10 @@ import PropTypes from "prop-types";
 //   to Todos, then into App.js. The way that we do that is through props; we create methods 
 //   inside of our props and call those methods. 
 
+// Think of state as a cloud of data that hoers above all the components and we are 
+// sending something up to change that data and then the changes rain back down.
+// (its a a one way data flow)
+
 export class TodoItem extends React.Component {
 
   getStyle = () => {
@@ -47,7 +51,7 @@ export class TodoItem extends React.Component {
   // to bind "this". 
 
   render() {
-    // pulls out values from this.props.todo so we dont have to continue 
+    // pulls out values from this.props.todo so we dont have to continue to 
     // delcaring "this"
     const { id, title } = this.props.todo;
     return (
@@ -58,6 +62,7 @@ export class TodoItem extends React.Component {
           <input type="checkbox" onChange={this.props.markComplete.bind
             (this, id)}/> { " " }
           { title }
+          <button onClick={this.props.deleteTodo.bind(this, id)} style={btnStyle}>x</button>
         </p>
       </div>
     )
@@ -68,5 +73,15 @@ TodoItem.propTypes = {
   todo: PropTypes.object.isRequired
   // This requires the component to have a prop named "todo" that is an object
 }
+
+const btnStyle = {
+  background: "#ff0000",
+  color: "#fff",
+  border: "none",
+  padding: "5px 9px",
+  borderRadius: "50%",
+  cursor: "pointer",
+  float: "right",
+};
 
 export default TodoItem
