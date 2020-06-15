@@ -18,7 +18,8 @@ class Todos extends React.Component {
   render() {
     return (
       this.props.todos.map(todo => (
-        <TodoItem key={todo.id} todo={todo} markComplete={this.props.markComplete}/> 
+        <TodoItem key={todo.id} todo={todo} markComplete={this.props.markComplete}
+        deleteTodo={this.props.deleteTodo}/> 
         // passing the todo object into TodoItem as a prop, so now TodoItem
         // has access to the todo and also passing the markComplete method to 
         // each TodoItem
