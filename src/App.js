@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Todos from "./components/Todos"; // importing Todos form components dir
 import Header from "./components/layout/Header"; 
+import AddTodo from "./components/AddTodo";
 
 // Different components can have their own state, but alot of times your have state 
 // that multiple components need to access. Todos need go in a place where we can feed it 
@@ -46,18 +47,30 @@ class App extends React.Component {
 
   deleteTodo = (id) => {
     this.setState({
-      todos: this.state.todos.filter(todo => 
-        todo.id !== id
-      )
-    });
+      todos: [...this.state.todos.filter(todo => todo.id !== id)]
+    })
+  }
+
+  addTodo = (title) => {
+    const newTodo = {
+      id: 4,
+      title: title,
+      completed: false 
+    }
+    this.setState({
+      todos: [...this.state.todos, newTodo]
+    })
   }
 
   render() {
     return (
       <div className="App">
-        <Header />
-        <Todos todos={this.state.todos} markComplete={this.markComplete}
-        deleteTodo={this.deleteTodo}/>
+        <div className="container">
+          <Header />
+          <AddTodo addTodo={this.addTodo}/>
+          <Todos todos={this.state.todos} markComplete={this.markComplete}
+          deleteTodo={this.deleteTodo}/>
+        </div>
       </div>
     )
   }
