@@ -15,6 +15,7 @@ export class AddTodo extends Component {
   submitTodo = (e) => {
     e.preventDefault();
     this.props.addTodo(this.state.title); 
+    this.setState({title: ""})
   }
 
   render() {

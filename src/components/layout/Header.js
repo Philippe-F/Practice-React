@@ -1,10 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom"; 
 
 function Header () {
   // with a functional component the return works like a render in class components
   return (
     <header style={headerStyle}>
       <h1>Todo List</h1>
+      <Link style={linkStyle} to="/">Home</Link> | 
+      <Link style={linkStyle} to="/about"> About</Link>
     </header>
   )
 }
@@ -16,9 +19,9 @@ const headerStyle = {
   padding: '10px'
 }
 
-// const linkStyle = {
-//   color: '#fff',
-//   textDecoration: 'none'
-// }
+const linkStyle = {
+  color: '#fff',
+  textDecoration: 'none'
+}
 
 export default Header;
