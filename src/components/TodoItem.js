@@ -70,7 +70,9 @@ export class TodoItem extends React.Component {
 }
 
 TodoItem.propTypes = {
-  todo: PropTypes.object.isRequired
+  todo: PropTypes.object.isRequired,
+  markComplete: PropTypes.func.isRequired,
+  deleteTodo: PropTypes.func.isRequired
   // This requires the component to have a prop named "todo" that is an object
 }
 

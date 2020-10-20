@@ -32,7 +32,9 @@ class Todos extends React.Component {
 // of "todos" (the prop is passed into the component from the App.js). 
 
 Todos.propTypes = {
-  todos: PropTypes.array.isRequired
+  todos: PropTypes.array.isRequired,
+  markComplete: PropTypes.func.isRequired,
+  deleteTodo: PropTypes.func.isRequired
   // This requires the component to have a prop named "todos" that is an array
 }
 

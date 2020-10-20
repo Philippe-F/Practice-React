@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 export class AddTodo extends Component {
   // When we have an inout field usually you're gonna want to have your fields as 
@@ -41,6 +42,10 @@ export class AddTodo extends Component {
       </form>
     )
   }
+}
+
+AddTodo.propTypes = {
+  addTodo: PropTypes.func.isRequired
 }
 
 export default AddTodo
